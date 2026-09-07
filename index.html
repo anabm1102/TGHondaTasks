@@ -423,10 +423,9 @@ function buildDay(k){
   closer.tasks.push('2nd calls days 0-2 start 4:00 PM');
 
   if(dow===1){                                        /* MONDAY */
-    const sat=lastSat(d);
-    opener.tasks.push('Missed appts '+fmt(sat)+' (Saturday)');
+    /* Saturday sits inside the 5-day block, so it is not listed separately */
+    opener.tasks.push('Missed appts '+range(monAnchor.start,monAnchor.end)+tag);
     opener.tasks.push('Phone ups '+range(monAnchor.start,monAnchor.end)+tag);
-    closer.tasks.push('Walk ins '+fmt(sat)+' (Saturday)');
     closer.tasks.push('Walk ins '+range(monAnchor.start,monAnchor.end)+tag);
     closer.tasks.push('Internet leads '+range(i6,i6b)+' (days 6-10, all)');
   }
